@@ -66,17 +66,4 @@ managers_data
 str(managers_data)
 
 
-####
-
-
-
-
-
-
-
-
-
-
-
-
 
