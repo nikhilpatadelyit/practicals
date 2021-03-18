@@ -9,7 +9,7 @@ q3_col <- c(5, 2, 5, 4, 1)
 q4_col <- c(5, 5, 5, NA, 2) # NA is inserted in place of missing data
 q5_col <- c(5, 5, 2, NA, 1) # NA is inserted in place of missing data
 
-# Construct a DF usinh the data from all the vectors
+# Construct a DF using the data from all the vectors
 managers_data <- data.frame(date_col, 
                             country_col, 
                             gender_col, 
@@ -64,6 +64,40 @@ managers_data
 
 # Look at the structure of the Df
 str(managers_data)
+
+# Create a new col called 'summary_col' that
+# contains a summary of each row
+summary_col <- managers_data$Q1 + 
+                     managers_data$Q2 + 
+                     managers_data$Q3 + 
+                     managers_data$Q4 + 
+                     managers_data$Q5
+summary_col
+
+# Add summary_col to the end of the DF
+# take content of df, create a new DF
+# and add summary_col vector to the DF
+
+managers_data <- data.frame(managers_data, summary_col)
+managers_data
+
+# Calculate mean value for each row
+mean_value <- rowMeans(managers_data[5:9])
+mean_value
+
+# Adding the mean_value vector to the DF
+managers_data <- data.frame(managers_data, mean_value)
+managers_data
+
+# Change the variable titles to make them readable
+names(managers_data)[11] <- "Summary"
+names(managers_data)[12] <- "Mean value"
+
+# Show the structure of the DF
+str(managers_data)
+managers_data
+
+
 
 
 
