@@ -82,5 +82,35 @@ plot(dose, type = "o", col = "blue")
 # option type = "b" shows both lines should be plotted
 plot(dose, drug_a, type = "b")
 
+# par - customize any settings such as fonts, colors etc
+# par = parameters 
+
+# store the default content of par before we make any changes to them
+opar <- par(no.readonly = TRUE)
+
+# lty = line type
+# lwd = line width
+# lty = 2 dashed line
+# pch = 17 solid traingle
+par(lty = 2, pch = 17)
+plot(dose, drug_a, type = "b")
+par = opar
+
+plot(dose, drug_a, type = "b", lty = 2, pch = 17)
+
+graph_range <- range(0, drug_a, drug_b)
+graph_range
+plot(drug_a, type = "o", col = "blue", ylim = graph_range, axes = FALSE, ann = FALSE)
+lines(drug_b, type = "o", pch = 22, lty = 2, col ="red")
+
+# make the x axis labels
+axis(1, at = 1:5, labels = c("20 ml", "40 ml", "60 ml", "80 ml", "100 ml"))
+
+# make the y axis that displays ticks at every 5 marks
+# marks = 5 * 
+axis(2, las = 1, at = 5 * 0:graph_range[2])
+
+
+
 
 
